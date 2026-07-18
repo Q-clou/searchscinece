@@ -1,4 +1,4 @@
-﻿# SearchScience
+# SearchScience
 
 > AI-Powered Multi-Source Academic Paper Deep Analysis System
 
