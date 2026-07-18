@@ -1,59 +1,46 @@
 [build-system]
-requires = ["setuptools>=61.0", "wheel"]
-build-backend = "setuptools.backends._legacy:_Backend"
+requires = ['setuptools>=61.0', 'wheel']
+build-backend = 'setuptools.backends._legacy:_Backend'
 
 [project]
-name = "searchscinece"
-version = "3.1.0"
-description = "Multi-source academic paper search, deep analysis, and Chinese daily report generation"
-readme = "README.md"
-license = {text = "MIT"}
-requires-python = ">=3.9"
+name = 'searchscinece'
+version = '5.0.0'
+description = 'AI-Powered Multi-Source Academic Paper Deep Analysis System | Codex Skill'
+readme = 'README.md'
+license = {text = 'MIT'}
+requires-python = '>=3.9'
 authors = [
-    {name = "SearchScience Contributors"}
+    {name = 'Q-clou'}
 ]
 keywords = [
-    "academic", "papers", "research", "arxiv", "semantic-scholar",
-    "literature-review", "deep-learning", "remote-sensing", "cnki"
+    'academic', 'papers', 'research', 'arxiv', 'cnki',
+    'literature-review', 'deep-learning', 'remote-sensing', 'codex-skill'
 ]
 classifiers = [
-    "Development Status :: 4 - Beta",
-    "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Topic :: Scientific/Engineering :: Artificial Intelligence",
-    "Topic :: Scientific/Engineering :: Information Analysis",
+    'Development Status :: 4 - Beta',
+    'Intended Audience :: Science/Research',
+    'License :: OSI Approved :: MIT License',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+    'Topic :: Scientific/Engineering :: Artificial Intelligence',
+    'Topic :: Scientific/Engineering :: Information Analysis',
 ]
 dependencies = [
-    "reportlab>=4.0",
-    "pyyaml>=6.0",
+    'reportlab>=4.0',
+    'pyyaml>=6.0',
 ]
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=7.0",
-    "pytest-cov>=4.0",
-    "flake8>=6.0",
+    'pytest>=7.0',
 ]
 
-[project.scripts]
-searchscinece = "scripts.cli:main"
-
 [project.urls]
-Homepage = "https://github.com/user/searchscinece"
-Issues = "https://github.com/user/searchscinece/issues"
-
-[tool.setuptools]
-packages = ["src", "scripts"]
+Homepage = 'https://github.com/Q-clou/searchscinece'
+Issues = 'https://github.com/Q-clou/searchscinece/issues'
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
-pythonpath = ["."]
-
-[tool.flake8]
-max-line-length = 120
-exclude = [".git", "__pycache__", ".pytest_cache"]
+testpaths = ['tests']
+pythonpath = ['.']

@@ -2,8 +2,8 @@ name: Daily Digest
 
 on:
   schedule:
-    - cron: "0 8 * * *"  # Daily at 8:00 UTC
-  workflow_dispatch:       # Manual trigger
+    - cron: '0 8 * * *'
+  workflow_dispatch:
 
 jobs:
   digest:
@@ -16,25 +16,26 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-version: "3.11"
+        python-version: '3.11'
 
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
-    
+
     - name: Fetch papers
       run: |
-        python scripts/cli.py --profile profiles/default.yaml --step fetch
+        python scripts/fetch_papers.py --output /tmp/papers.json --max-results 10 --profile-path config/default_profile.yaml
 
     - name: Generate report
       run: |
-        python scripts/cli.py --profile profiles/default.yaml --step report
+        python scripts/generate_report.py /tmp/papers.json --profile config/default_profile.yaml
+      continue-on-error: true
 
-    - name: Upload report artifact
+    - name: Upload report
       uses: actions/upload-artifact@v4
       with:
         name: daily-report
         path: |
-          ~/codex_outputs/*/papers.json
+          /tmp/papers.json
           ~/Desktop/*.pdf
       continue-on-error: true
