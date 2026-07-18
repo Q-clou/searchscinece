@@ -1,0 +1,44 @@
+# 示例用户画像 — 复制修改即可使用
+user:
+  name: "Example Researcher"
+  institution: "Example University"
+  level: "硕士"
+  language_preference: "zh"
+
+research_directions:
+  - name: "遥感图像处理"
+    keywords_cn: ["遥感", "深度学习", "语义分割"]
+    keywords_en: ["remote sensing", "deep learning", "semantic segmentation"]
+    weight: 10
+
+sources:
+  cnki: { enabled: true, priority: 1, max_papers_per_query: 3 }
+  arxiv: { enabled: true, priority: 2, max_papers_per_query: 3 }
+  google_scholar: { enabled: true, priority: 3, max_papers_per_query: 3 }
+  pubmed: { enabled: false, priority: 5, max_papers_per_query: 2 }
+  ieee: { enabled: false, priority: 4, max_papers_per_query: 2 }
+
+selection:
+  max_papers_per_day: 5
+  prefer_recent_days: 180
+  prefer_open_access: true
+  prefer_with_code: true
+
+analysis:
+  detail_level: "deep"
+  language: "zh"
+  include_sections: [background, method, innovation, experiments, limitations, relevance, reading_guide]
+
+output:
+  report_dir: "Desktop"
+  pdf_dir: "Desktop/论文原文"
+  data_dir: "~/codex_outputs"
+  report_filename: "学术日报_{date}.pdf"
+  include_english_abstract: true
+  include_github_info: true
+  include_key_terms: true
+
+personal_background: "请在此填写你的研究背景"
+
+target_venues: []
+exclude_keywords: []

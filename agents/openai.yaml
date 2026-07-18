@@ -1,0 +1,4 @@
+interface:
+  display_name: "SearchScience"
+  short_description: "多源学术论文深度分析——根据个人画像自动检索、深度学习分析、生成中文日报PDF"
+  default_prompt: "Use $searchscinece to search academic papers from CNKI, arXiv, PubMed, and Google Scholar based on my research profile, perform deep teaching-level analysis in Chinese, and generate a journal-format daily PDF report with GitHub code links."

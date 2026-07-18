@@ -1,0 +1,133 @@
+# ============================================================
+# SearchScience 用户研究画像模板
+# 复制此文件，修改后保存到 profiles/ 目录
+# 使用: python scripts/cli.py --profile profiles/你的画像.yaml
+# ============================================================
+
+# === 基本信息 ===
+user:
+  name: "你的名字"
+  email: "your@email.com"
+  institution: "你的学校/机构"
+  level: "本科"          # 本科/硕士/博士/教师/研究员
+  language_preference: "zh"  # zh(中文为主) / en(英文为主) / bilingual(双语)
+
+# === 研究方向 ===
+# 每个方向包含: name(名称), keywords(中英文关键词), weight(权重1-10)
+research_directions:
+  - name: "遥感语义分割"
+    keywords_cn: ["遥感", "语义分割", "深度学习"]
+    keywords_en: ["remote sensing", "semantic segmentation", "deep learning"]
+    weight: 9
+
+  - name: "点云处理"
+    keywords_cn: ["点云", "LiDAR", "语义分割", "目标检测"]
+    keywords_en: ["point cloud", "LiDAR", "semantic segmentation", "object detection"]
+    weight: 9
+
+  - name: "SLAM与三维重建"
+    keywords_cn: ["SLAM", "三维重建", "高斯泼溅", "NeRF"]
+    keywords_en: ["SLAM", "3D reconstruction", "Gaussian splatting", "NeRF"]
+    weight: 8
+
+  - name: "无人机摄影测量"
+    keywords_cn: ["无人机", "摄影测量", "倾斜摄影"]
+    keywords_en: ["UAV", "photogrammetry", "oblique photography"]
+    weight: 7
+
+  - name: "高光谱遥感"
+    keywords_cn: ["高光谱", "分类", "目标检测"]
+    keywords_en: ["hyperspectral", "classification", "target detection"]
+    weight: 6
+
+  - name: "遥感变化检测"
+    keywords_cn: ["变化检测", "遥感", "深度学习"]
+    keywords_en: ["change detection", "remote sensing", "deep learning"]
+    weight: 6
+
+  - name: "InSAR形变监测"
+    keywords_cn: ["InSAR", "形变监测", "SAR"]
+    keywords_en: ["InSAR", "deformation monitoring", "SAR"]
+    weight: 5
+
+  - name: "遥感基础模型"
+    keywords_cn: ["基础模型", "Transformer", "遥感"]
+    keywords_en: ["foundation model", "transformer", "remote sensing"]
+    weight: 7
+
+# === 数据源配置 ===
+sources:
+  cnki:
+    enabled: true
+    priority: 1          # 1=最高优先级
+    max_papers_per_query: 3
+  arxiv:
+    enabled: true
+    priority: 2
+    max_papers_per_query: 3
+  pubmed:
+    enabled: false        # 非生物医学方向可关闭
+    priority: 5
+    max_papers_per_query: 2
+  google_scholar:
+    enabled: true
+    priority: 3
+    max_papers_per_query: 3
+  ieee:
+    enabled: false
+    priority: 4
+    max_papers_per_query: 2
+
+# === 论文筛选 ===
+selection:
+  max_papers_per_day: 5       # 每天最多深度分析几篇
+  prefer_recent_days: 180     # 优先最近多少天的论文
+  prefer_open_access: true    # 优先开放获取论文
+  prefer_with_code: true      # 优先有开源代码的论文
+
+# === 深度分析配置 ===
+analysis:
+  detail_level: "deep"        # brief(简要) / standard(标准) / deep(深入)
+  language: "zh"              # 分析输出语言: zh / en
+  include_sections:           # 要包含的分析章节
+    - background              # 研究背景
+    - method                  # 方法解析
+    - innovation              # 创新点
+    - experiments             # 实验验证
+    - limitations             # 局限性
+    - relevance               # 与个人研究关联
+    - reading_guide           # 阅读指南
+
+# === 输出配置 ===
+output:
+  report_dir: "Desktop"       # PDF日报输出目录 (Desktop / 自定义路径)
+  pdf_dir: "Desktop/论文原文"  # PDF原文下载目录
+  data_dir: "~/codex_outputs" # 中间数据目录
+  report_filename: "学术日报_{date}.pdf"  # 日报文件名模板
+  include_english_abstract: true   # 是否保留英文摘要
+  include_github_info: true        # 是否包含GitHub信息
+  include_key_terms: true          # 是否包含术语对照
+
+# === 个人研究背景（用于关联评价） ===
+# 这段会被AI用来评估论文与你的相关性
+personal_background: |
+  请在这里描述你的研究背景和需求。
+  例如：我是一名遥感专业的硕士研究生，研究方向是xxx。
+  我的长期目标是xxx。我目前在学习xxx。
+  我特别关注xxx方向的最新进展。
+
+# === 目标期刊/会议 ===
+target_venues:
+  - "测绘学报"
+  - "遥感学报"
+  - "ISPRS Journal"
+  - "Remote Sensing of Environment"
+  - "IEEE TGRS"
+
+# === 排除关键词 ===
+# 包含这些关键词的论文会被自动过滤
+exclude_keywords:
+  - "medical"
+  - "clinical"
+  - "brain"
+  - "tumor"

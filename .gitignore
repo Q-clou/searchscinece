@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# User outputs
+outputs/
+codex_outputs/
+
+# Personal profiles (do NOT commit!)
+profiles/*.yaml
+!profiles/example.yaml
+
+# Progress files
+progress.json
+papers.json
+
+# Env
+.env
+.env.local
